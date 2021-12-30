@@ -55,11 +55,11 @@ async function main () {
     const page = await browser.newPage();
 
     const keywords = await getKeywords();
-    const inactiveArticles = await getInactiveArticles();
+    const articles = await getArticles();
     console.log('\n\n\n');
     console.log('keywords', keywords);
     console.log('\n\n\n');
-    console.log('inactiveArticles', inactiveArticles);
+    console.log('articles', articles);
     console.log('\n\n\n');
 
     /* CNN */
@@ -90,7 +90,7 @@ async function main () {
 
             let text = await (await element.getProperty('innerText')).jsonValue();
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(cnnHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(cnnHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 cnnHeadlines.push(article);
             }
@@ -138,7 +138,7 @@ async function main () {
 
             let text = await (await element.getProperty('innerText')).jsonValue();
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(bloombergHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)) {
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(bloombergHeadlines, text) && !headlineAlreadyAdded(articles, text)) {
                 article.headline = text;
                 bloombergHeadlines.push(article);
             }
@@ -187,7 +187,7 @@ async function main () {
 
             let text = await (await element.getProperty('innerText')).jsonValue();
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(newScientistHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(newScientistHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 newScientistHeadlines.push(article);
             }
@@ -238,7 +238,7 @@ async function main () {
             text = text.trim();
             if(text.split('\n').length>1)
                 text = text.split('\n')[1];
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(nbcHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(nbcHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 nbcHeadlines.push(article);
             }
@@ -294,7 +294,7 @@ async function main () {
                 text = await element.$eval('a:not(.ProPill-proPillLink)', a => a.getAttribute('title'));
             }
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(cnbcHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(cnbcHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 cnbcHeadlines.push(article);
             }
@@ -344,7 +344,7 @@ async function main () {
             if(text.split('\n').length>1)
                 text = text.split('\n')[0];
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(dailymailukHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(dailymailukHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 dailymailukHeadlines.push(article);
             }
@@ -394,7 +394,7 @@ async function main () {
             if(text.split('\n').length>1)
                 text = text.split('\n')[0];
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(dailystarukHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(dailystarukHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 dailystarukHeadlines.push(article);
             }
@@ -442,7 +442,7 @@ async function main () {
 
             let text = await element.$eval('a:first-child', a => a.getAttribute('title'));
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(thelastamericanvagabondHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(thelastamericanvagabondHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 thelastamericanvagabondHeadlines.push(article);
             }
@@ -492,7 +492,7 @@ async function main () {
             if(text.split('\n').length>1)
                 text = text.split('\n')[0];
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(techcrunchHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(techcrunchHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 techcrunchHeadlines.push(article);
             }
@@ -542,7 +542,7 @@ async function main () {
             if(text.split('\n').length>1)
                 text = text.split('\n')[0];
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(thegrayzoneHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(thegrayzoneHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 thegrayzoneHeadlines.push(article);
             }
@@ -592,7 +592,7 @@ async function main () {
             if(text.split('\n').length>1)
                 text = text.split('\n')[0];
             text = text.trim();
-            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(muckrockHeadlines, text) && !headlineAlreadyAdded(thelastamericanvagabondHeadlines, text) && !headlineAlreadyAdded(inactiveArticles, text)){
+            if(headlineHasKeyword(keywords.filter((keyword, index) => {return keyword.language.localeCompare('eng')===0 || keyword.language.localeCompare('all')===0}), text) && !headlineAlreadyAdded(muckrockHeadlines, text) && !headlineAlreadyAdded(thelastamericanvagabondHeadlines, text) && !headlineAlreadyAdded(articles, text)){
                 article.headline = text;
                 muckrockHeadlines.push(article);
             }
@@ -613,7 +613,7 @@ async function main () {
     await browser.close();
 }
 
-async function getInactiveArticles(){
+async function getArticles(){
     const { pool } = require('./config/db');
     const client = await pool.connect();
     try {
