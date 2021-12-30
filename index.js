@@ -50,7 +50,11 @@ require('./routes')(app);
 async function main () {
     const browser = await puppeteer.launch({
         headless: true,     //esconder o no
-        defaultViewport: { width: 1920, height: 1080}
+        defaultViewport: { width: 1920, height: 1080},
+        'args' : [
+            '--no-sandbox',
+            '--disable-setuid-sandbox'
+        ]
     });
     const page = await browser.newPage();
 
@@ -727,13 +731,10 @@ async function clearArticles () {
 }
 
 mainFunctionTimer();
-console.log('after main')
 
 async function mainFunctionTimer () {
     main();
-    console.log('1')
     setInterval(() => {
-        console.log('2')
         main();
         const today = new Date();
         if(isLastDay(today))
