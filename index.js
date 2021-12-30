@@ -727,10 +727,13 @@ async function clearArticles () {
 }
 
 mainFunctionTimer();
+console.log('after main')
 
 async function mainFunctionTimer () {
     main();
+    console.log('1')
     setInterval(() => {
+        console.log('2')
         main();
         const today = new Date();
         if(isLastDay(today))
