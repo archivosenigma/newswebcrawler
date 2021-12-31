@@ -657,6 +657,7 @@ async function saveArticles(headlines){
     try {
         for (let index = 0; index < headlines.length; index++) {
             const headline = headlines[index];
+            console.log('headline', headline)
             let query = "insert into articles (headline, url, site, language, active) values ($1, $2, $3, $4, $5)";
             let values = [headline.headline, headline.url, headline.site, headline.language, 1];
             const savedheadlines = await client.query(query, values);
