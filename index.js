@@ -104,11 +104,11 @@ async function main () {
     }catch(e){
         console.log('1.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*********** CNN ***************");
     console.log(cnnHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(cnnHeadlines);
 
     
@@ -152,12 +152,12 @@ async function main () {
     }catch(e){
         console.log('2.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("********* BLOOMBERG ***********");
     console.log(bloombergHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(bloombergHeadlines);
 
 
@@ -201,12 +201,12 @@ async function main () {
     }catch(e){
         console.log('3.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("******** NEWSCIENTIST *********");
     console.log(newScientistHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(newScientistHeadlines);
 
 
@@ -252,12 +252,12 @@ async function main () {
     }catch(e){
         console.log('4.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("************* NBC *************");
     console.log(nbcHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(nbcHeadlines);
 
 
@@ -308,12 +308,12 @@ async function main () {
     }catch(e){
         console.log('5.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("************* CNBC ************");
     console.log(cnbcHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(cnbcHeadlines);
 
 
@@ -358,12 +358,12 @@ async function main () {
     }catch(e){
         console.log('6.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("********* DAILYMAILUK *********");
     console.log(dailymailukHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(dailymailukHeadlines);
 
 
@@ -408,12 +408,12 @@ async function main () {
     }catch(e){
         console.log('7.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("********* DAILYSTARUK *********");
     console.log(dailystarukHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(dailystarukHeadlines);
 
 
@@ -456,12 +456,12 @@ async function main () {
     }catch(e){
         console.log('8.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("*** THELASTAMERICANVAGABOND ***");
     console.log(thelastamericanvagabondHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(thelastamericanvagabondHeadlines);
 
 
@@ -506,12 +506,12 @@ async function main () {
     }catch(e){
         console.log('9.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("********* TECHCRUNCH **********");
     console.log(techcrunchHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(techcrunchHeadlines);
 
 
@@ -556,12 +556,12 @@ async function main () {
     }catch(e){
         console.log('10.4', e)
     }
-    /* console.log("/******************************");
+    console.log("/******************************");
     console.log("*******************************");
     console.log("********* THEGRAYZONE *********");
     console.log(thegrayzoneHeadlines);
     console.log("*******************************");
-    console.log("******************************\\"); */
+    console.log("******************************\\");
     saveArticles(thegrayzoneHeadlines);
 
 
