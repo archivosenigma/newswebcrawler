@@ -146,8 +146,8 @@ async function main () {
                 article.headline = text;
                 bloombergHeadlines.push(article);
             }
-            /* console.log(index+") ", text);
-            console.log(link); */
+            console.log(index+") ", text);
+            console.log(link);
         }
     }catch(e){
         console.log('2.4', e)
