@@ -81,6 +81,7 @@ async function main () {
     let cnnHeadlinesPage;
     try{
         cnnHeadlinesPage = await page.$$(".cd__headline");
+        console.log('articles length', cnnHeadlinesPage.length)
     }catch(e){
         console.log('1.3', e)
     }
@@ -129,6 +130,7 @@ async function main () {
     let bloombergHeadlinesPage;
     try{
         bloombergHeadlinesPage = await page.$$(".single-story-module__headline-link, .single-story-module__related-story-link, .story-package-module__story__headline-link, .story-list-story__info__headline-link");
+        console.log('articles length', bloombergHeadlinesPage.length)
     }catch(e){
         console.log('2.3', e)
     }
@@ -178,6 +180,7 @@ async function main () {
     let newScientistHeadlinesPage;
     try{
         newScientistHeadlinesPage = await page.$$(".card__content--linked");
+        console.log('articles length', newScientistHeadlinesPage.length)
     }catch(e){
         console.log('3.3', e)
     }
