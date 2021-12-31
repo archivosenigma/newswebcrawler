@@ -593,7 +593,7 @@ async function main () {
             const element = muckrockHeadlinesPage[index];
             const article = {headline: '', url: '', site: 'muckrock', language: 'eng'};
             const link = await element.$eval('a', a => a.getAttribute('href'));
-            article.url = link;
+            article.url = "https://www.muckrock.com"+link;
 
             let text = await (await element.getProperty('innerText')).jsonValue();
             if(text.split('\n').length>1)
