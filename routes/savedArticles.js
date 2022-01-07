@@ -31,9 +31,13 @@ router.post('/', async (req, res) =>  {
         const valuesArticle = [req.body.headline, req.body.url, req.body.site, req.body.language];
         const insertArticle = await client.query(queryArticle, valuesArticle);
         const categories = req.body.categories;
+        console.log('categories', categories)
+        console.log('insertArticle', insertArticle)
         for (let index = 0; index < categories.length; index++) {
             const category = categories[index];
             const queryArticleCategories ="insert into savedarticlecategories (savedarticleid, categoryid) values ($1, $2)";
+            console.log('category', category)
+            console.log('insertArticle.rows[0].id', insertArticle.rows[0].id)
             const valuesArticleCategories = [insertArticle.rows[0].id, category.id];
             const insertArticleCategory = await client.query(queryArticleCategories, valuesArticleCategories);
         }

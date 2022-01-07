@@ -21,7 +21,6 @@ require('./routes')(app);
 //document.querySelectorAll(".single-story-module__headline-link")
 //document.querySelectorAll(".single-story-module__related-story")
 //BLOOMBERG
-//document.querySelectorAll(".story-package-module__story__headline")
 //document.querySelectorAll(".single-story-module__related-story-link")
 //document.querySelectorAll(".story-package-module__story__headline-link")
 //document.querySelectorAll(".story-list-story__info__headline-link")
@@ -129,7 +128,7 @@ async function main () {
 
     let bloombergHeadlinesPage;
     try{
-        bloombergHeadlinesPage = await page.$$(".single-story-module__headline-link, .single-story-module__related-story-link, .story-package-module__story__headline-link, .story-list-story__info__headline-link");
+        bloombergHeadlinesPage = await page.$$(".single-story-module__related-story-link, .story-package-module__story__headline-link, .story-list-story__info__headline-link");
         console.log('articles length', bloombergHeadlinesPage.length)
     }catch(e){
         console.log('2.3', e)
