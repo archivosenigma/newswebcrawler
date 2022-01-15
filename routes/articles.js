@@ -5,7 +5,7 @@ const { pool } = require('../config/db');
 router.get('/', async (req, res) =>  {
     const client = await pool.connect();
     try {
-        let query = "select * from articles where active = '1'";
+        let query = "select * from articles where active = '1' limit 200";
         let values = [];
         const articles = await client.query(query, values);
 
