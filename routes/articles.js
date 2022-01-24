@@ -17,7 +17,7 @@ router.get('/', async (req, res) =>  {
     } finally {
         client.release(true);
     }
-});º
+});
 
 router.put('/:id', async (req, res) =>  {
     const client = await pool.connect();
