@@ -22,9 +22,14 @@ router.get('/', async (req, res) =>  {
 router.put('/:id', async (req, res) =>  {
     const client = await pool.connect();
     try {
-        let query = "update articles set active = '0' where id = $1";
-        let values = [req.params.id];
-        const articles = await client.query(query, values);
+        let ids = req.params.id.split(',');
+        console.log('ids', ids);
+        for (let index = 0; index < ids.length; index++) {
+            const element = ids[index];
+            let query = "update articles set active = '0' where id = $1";
+            let values = [element];
+            const articles = await client.query(query, values);
+        }
 
         res.status(200).send();
     } catch (err) {

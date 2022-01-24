@@ -623,7 +623,7 @@ async function getArticles(){
     const { pool } = require('./config/db');
     const client = await pool.connect();
     try {
-        let query = "select * from articles where active = '0'";
+        let query = "select * from articles";
         let values = [];
         const articles = await client.query(query, values);
 
