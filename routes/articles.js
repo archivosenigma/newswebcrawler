@@ -27,7 +27,7 @@ router.put('/:id', async (req, res) =>  {
         for (let index = 0; index < ids.length; index++) {
             const element = ids[index];
             let query = "update articles set active = '0' where id = $1";
-            let values = [element];
+            let values = parseInt(element);
             const articles = await client.query(query, values);
         }
 
